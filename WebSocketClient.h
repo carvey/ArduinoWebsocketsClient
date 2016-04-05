@@ -37,7 +37,7 @@
 class WebSocketClient {
 	public:
 		typedef void (*DataArrivedDelegate)(WebSocketClient client, String data);
-		bool connect(char hostname[], char path[] = "/", int port = 80);
+		bool connect(char hostname[], String path = "/", int port = 80);
         bool connected();
         void disconnect();
 		void monitor();
@@ -45,7 +45,7 @@ class WebSocketClient {
 		void send(String data);
 	private:
         String getStringTableItem(int index);
-        void sendHandshake(char hostname[], char path[]);
+        void sendHandshake(char hostname[], String path);
         EthernetClient _client;
         DataArrivedDelegate _dataArrivedDelegate;
         bool readHandshake();
